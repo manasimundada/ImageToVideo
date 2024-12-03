@@ -1,0 +1,34 @@
+CREATE TABLE users(
+    user_id INT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(75) NOT NULL,
+    password VARCHAR(65) NOT NULL,
+    name VARCHAR(50));
+
+CREATE TABLE images(
+    image_id INT PRIMARY KEY,
+    user_id INT NOT NULL,
+    data BYTEA,
+    filename VARCHAR(255));
+
+CREATE TABLE audio(
+    audio_id INT PRIMARY KEY,
+    data BYTEA,
+    selected INT DEFAULT 0,
+    filename VARCHAR(255),
+    mime_type VARCHAR(255));
+
+SHOW COLUMNS FROM users;
+SHOW COLUMNS FROM images;
+SHOW COLUMNS FROM audio;
+
+-- don't run these if you don't want to insert anything into the tables
+
+INSERT INTO users (user_id, username, password, email, name) VALUES
+(1, 'user1', 'password1', 'user1@example.com', 'User One'),
+(2, 'user2', 'password2', 'user2@example.com', 'User Two'),
+(3, 'user3', 'password3', 'user3@example.com', 'User Three');
+ 
+INSERT INTO images (image_id,user_id,filename,mime_type) VALUES
+(1,1,'cam.png','cam/png'), 
+(2,1,'video.png','video/png');

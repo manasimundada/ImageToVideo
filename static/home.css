@@ -1,0 +1,256 @@
+@import url('/home/vishal/ug1/node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.multiple-uploader {
+    flex:1;
+    flex-wrap: wrap;
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    border-radius: 15px;
+    border: 2px dashed #858585;
+    min-height: 250px;
+    margin: 20px auto;
+    cursor: pointer;
+    width: 1000px;
+}
+.multiple-uploader:hover{
+    background-color: #e8e3e3;
+}
+
+.upload{
+    text-align: center;
+}
+
+.Uppyload{
+    background-color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    width: 120px;
+    height: 40px;
+}
+
+
+.create-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mup-msg {
+    text-align: center;
+    display: flex;
+    /* overflow: hidden; */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mup-msg span {
+    margin-bottom: 10px;
+}
+
+.mup-msg .mup-main-msg {
+    color: #606060;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.mup-msg .mup-msg {
+    color: #737373;
+}
+
+.image-container{
+    margin: 1rem;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    cursor: auto;
+    pointer-events: unset;
+}
+
+.image-container:before {
+    z-index: 3;
+    content: "\2716";
+    align-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 22px;
+    color: white;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e50000;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.image-preview {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+}
+
+.image-size {
+    position: absolute;
+    z-index: 1;
+    height: 120px;
+    width: 120px;
+    backdrop-filter: blur(4px);
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: unset;
+}
+
+.image-size:hover {
+    opacity: 1;
+}
+
+.exceeded-size
+{
+    position: absolute;
+    z-index: 2;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: white;
+    background: rgba(255, 0, 0, 0.6);
+    pointer-events: unset;
+}
+.video-customization {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .video-customization h2 {
+    margin-bottom: 10px;
+  }
+  
+  .control-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .control-group label {
+    margin-right: 10px;
+  }
+  
+  .control-group input[type="file"],
+  .control-group input[type="number"],
+  .control-group select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex: 1;
+  }
+  
+.preview{
+    flex:1;
+    background-color: aqua;
+}
+.outset{
+    flex:1;
+    background-color:bisque;
+}
+.custom-file-input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.custom-file-input input[type="file"] {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.video-icon{
+    width:80px;
+    height:80px;
+}
+.cam{
+    width:80px;
+    height:80px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 50px;
+    background-color: #B0B0B0;
+    color: #000000; 
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    width: 10px;
+}
+.btn:hover {
+    background-color: #808080; 
+    color: #FFFFFF;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+
+#logout, #submitbtn {
+    width: 10em;
+    height: 3.3em;
+    font-size: 1em;
+    text-align: center;
+    line-height: 2em;
+    font-weight: bold;
+}

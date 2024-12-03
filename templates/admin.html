@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Page</title>
+<!-- <link href="{{ url_for('static', filename='admin.css') }}" rel="stylesheet" type="text/css"> -->
+<style>
+    body {
+        font-family: Courier, monospace;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #555;
+    }
+
+    .section {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .section:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .image {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .user-info {
+        margin-bottom: 10px;
+    }
+
+    .user-info p {
+        margin: 5px 0;
+    }
+
+    .logout-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .logout-btn {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .logout-btn:hover {
+        background-color: #333;
+    }
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Admin Page</h1>
+    {% for user in usernames %}
+    <div class="section">
+        <div class="user-info">
+            <p><strong>Username:</strong> {{ users[user]['username'] }}</p>
+            <p><strong>Name:</strong> {{ users[user]['name'] }}</p>
+            <p><strong>Email:</strong> {{ users[user]['email'] }}</p>
+            <p><strong>Images:</strong></p>
+        </div>
+        <div class="image-container">
+            {% for image in users[user]['images'] %}
+            <img class="image" src="{{ image }}" alt="Image">
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="logout-container">
+    <form action="/" method="post">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+</div>
+
+</body>
+</html>

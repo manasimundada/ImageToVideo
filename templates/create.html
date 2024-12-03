@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Video</title>
+    <link href="{{ url_for('static', filename='create.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>User is {{ user.username }}</h1>
+    <div class="container">
+        <h1>Create a Video</h1>
+        <div class="image-grid">
+            <div class="image-item">
+                <img src="image1.png" alt="Image 1">
+            </div>
+            <div class="image-item">
+                <img src="image2.png" alt="Image 2">
+            </div>
+            <div class="image-item">
+                <img src="image3.png" alt="Image 3">
+            </div>
+            <div class="image-item">
+                <img src="image4.png" alt="Image 4">
+            </div>
+            <div class="image-item">
+                <img src="image5.png" alt="Image 5">
+            </div>
+            <div class="image-item">
+                <img src="image6.png" alt="Image 6">
+            </div>
+        </div>
+        <button class="create-video-btn">Create Video</button>
+        <div class="random-video">
+            <video controls>
+                <source src="mario.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</body>
+</html>

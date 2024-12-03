@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ISS Project</title>
+    <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cust.js') }}"></script>
+</head>
+<body>
+  <!-- <h1>{{ user.user_id }}</h1> -->
+  <div class="container">
+    <form method="post" action="/customise" enctype="multipart/form-data" id="my-form">
+      <div class="multiple-uploader" id="multiple-uploader">
+        <label for="file-input" class="custom-file-input">
+            <!-- <h1>User is {{ user.username }}</h1> -->
+            <h1>User is {{ user }}</h1>
+            <span class="mup-main-msg">CLICK TO UPLOAD IMAGES</span>
+            <span class="mup-msg" id="max-upload-number">Upload up to 10 images</span>
+            <span class="mup-msg">Only image files can be uploaded</span>
+            <img src="{{ url_for('static',filename='images/cam.png') }}" class="cam">
+        </label>
+        <input type="file" id="file-input" name="images" multiple style="display: none;">
+        <!-- <input type="file" id="file-input" name="images" multiple> -->
+      </div>
+      <input type="submit" value="Create Video">
+    </form>
+    </div>
+    <form action="/" method="post">
+      <div class="logout">
+        <input type="submit" value="Logout">
+      </div>
+    </form>
+  <script src="home.js"></script>
+  <script src="cust.js"></script>
+  <script src="util.js"></script>
+  <script>
+
+      let multipleUploader = new MultipleUploader('#multiple-uploader').init({
+          maxUpload : 20, // maximum number of uploaded images
+          maxSize:2, // in size in mb
+          filesInpName:'images', // input name sent to backend
+          formSelector: '#my-form', // form selector
+      });
+
+  </script>
+</body>
+</html>

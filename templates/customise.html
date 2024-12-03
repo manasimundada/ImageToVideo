@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Transition Settings</title>
+
+<!-- <link href="{{ url_for('static', filename='customise.css') }}" rel="stylesheet" type="text/css"> -->
+
+<style>
+    body {
+        font-family: Courier, monospace;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #555;
+    }
+
+    .section {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .section:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    select, input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg fill="#333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0z"/></svg>') no-repeat right 10px center/15px 15px;
+    }
+
+    input[type="text"] {
+        font-family: Courier, monospace;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .btn {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #333;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Image Transition Settings</h1>
+    <form id="settings-form" action="/preview" method="post">
+        {% for image in image_list %}
+        <div class="section">
+            <img class="image" src="data:image/png;base64,{{ image }}" alt="Image", style="width: 32.5vw;">
+            <label for="transition">Transition:</label>
+            <select name="transition">
+                <option value="fadein">Fade In</option>
+                <option value="fadeout">Fade Out</option>
+                <option value="crossfadein">Crossfade In</option>
+                <option value="crossfadeout">Crossfade Out</option>
+                <option value="rotate_clockwise">Rotate Clockwise</option>
+                <option value="rotate_anticlockwise">Rotate Anti-Clockwise</option>
+            </select>
+            <label for="duration">Duration (seconds):</label>
+            <input type="number" name="duration" placeholder="Enter duration (Maximum 10)" max="10" required>
+            <!-- <input type="text" name="duration" placeholder="Enter duration"> -->
+        </div>
+        {% endfor %}
+        <div class="music-preview-section">
+            <h2>Music Preview</h2>
+            <label>
+                <input type="radio" name="music" value="music1">
+                <audio src="{{ url_for('static', filename='music/music1.mp3') }}" controls></audio>
+            </label><br>
+            <label>
+                <input type="radio" name="music" value="music2">
+                <audio src="{{ url_for('static', filename='music/music2.mp3') }}" controls></audio>
+            </label><br>
+            <label>
+                <input type="radio" name="music" value="music3">
+                <audio src="{{ url_for('static', filename='music/music3.mp3') }}" controls></audio>
+            </label><br>
+            <label>
+                <input type="radio" name="music" value="music4">
+                <audio src="{{ url_for('static', filename='music/music4.mp3') }}" controls></audio>
+            </label><br>
+            <br>
+            <label>
+                <input type="radio" name="music" value="music5">
+                None
+            </label><br>
+            <br>
+        </div>
+        <label for="resolution">Video Resolution:</label><br>
+        <input type="radio" id="360p" name="resolution" value="360p">
+        <label for="360p">360p</label><br>
+        <input type="radio" id="480p" name="resolution" value="480p">
+        <label for="480p">480p</label><br>
+        <input type="radio" id="720p" name="resolution" value="720p">
+        <label for="720p">720p</label><br>
+        <input type="radio" id="1080p" name="resolution" value="1080p">
+        <label for="1080p">1080p</label><br>
+
+        <div class="button-container">
+            <button type="submit" class="btn">Preview</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

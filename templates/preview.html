@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Preview</title>
+
+<style>
+    body {
+        font-family: Courier, monospace;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #555;
+    }
+
+    video {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .button-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 5px; /* Adjust spacing between buttons */
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Preview</h1>
+    <video controls>
+        <source src="{{ url_for('static', filename='videos/output.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <div class="btn-container">
+        <form action="/">
+            <button class="btn" type="submit">Logout</button>
+        </form>
+        <form action="/download">
+            <button class="btn" type="submit">Download</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
